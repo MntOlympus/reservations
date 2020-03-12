@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
 const db = require('../database/models');
 const port = 3000;
 
@@ -13,4 +12,4 @@ app.use(express.static(__dirname + '/../client'));
 
 app.get('/api/reservations', (req, res) => {
 
-});X
+});
