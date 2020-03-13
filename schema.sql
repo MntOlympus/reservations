@@ -7,10 +7,11 @@ USE airbnb;
 CREATE TABLE property (
   id int NOT NULL AUTO_INCREMENT,
   price decimal(10, 2) NOT NULL,
-  propTax decimal
   rating decimal(10, 2) NOT NULL,
   ratingsCount int NOT NULL,
   maxGuests int NOT NULL,
+  tax decimal(10, 2) NOT NUll,
+  service_fee decimal(10, 2),
   PRIMARY KEY (ID)
 );
 
@@ -22,6 +23,8 @@ CREATE TABLE reservation (
   children int,
   infants int,
   cost decimal(10, 2) NOT NULL,
+  tax decimal(10, 2) NOT NULL,
+  service_charge decimal(10, 2) NOT NULL,
   property_id int,
   PRIMARY KEY (ID)
 );
