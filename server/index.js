@@ -1,9 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('../database/models');
-const port = 3000;
+const Controller = require('../server/models');
 
 const app = express();
+const port = 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlendcoded({extended: true}));

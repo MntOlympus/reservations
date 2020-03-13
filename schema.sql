@@ -4,12 +4,12 @@ CREATE DATABASE airbnb;
 
 USE airbnb;
 
-CREATE TABLE property (
+CREATE TABLE properties (
   id int NOT NULL AUTO_INCREMENT,
   price decimal(10, 2) NOT NULL,
   rating decimal(10, 2) NOT NULL,
-  ratingsCount int NOT NULL,
-  maxGuests int NOT NULL,
+  ratings_count int NOT NULL,
+  max_guests int NOT NULL,
   tax decimal(10, 2) NOT NUll,
   service_fee decimal(10, 2),
   PRIMARY KEY (ID)
