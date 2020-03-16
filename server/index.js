@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(__dirname + '/../client'));
 
-app.listen(port, () => console.log('server is listening on port 3000...'))
+app.listen(port, () => console.log(`server is listening on port ${port}...`))
 
 
 app.get('/api/properties', (req, res) => {
