@@ -7,10 +7,12 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      calClicked: false
+      calClicked: false,
+      guestClicked: false
     }
 
     this.calPopUp = this.calPopUp.bind(this);
+    this.guestPopUp = this.guestPopUp.bind(this);
   }
 
   componentDidMount() {
@@ -36,6 +38,12 @@ class App extends React.Component {
     })
   }
 
+  guestPopUp() {
+    this.setState({
+      guestClicked: !this.state.guestClicked
+    })
+  }
+
   render() {
 
 
@@ -44,18 +52,18 @@ class App extends React.Component {
         <div>${this.state.price} per night</div>
         <span>*{this.state.rating}</span><span>   </span>
         <span>({this.state.reviewCount}) reviews</span>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div>Dates</div>
         <div onClick={this.calPopUp}><span>Check In</span>  <span>Check Out</span></div>
         <div>
-          {this.state.calClicked ? <Calendar />: null}
+          {this.state.calClicked ? <Calendar /> : null}
         </div>
 
-        <br/>
-        <div>Guests</div>
+        <br />
+        <div onClick={this.guestPopUp}>Guests</div>
         <div>
-          <Guests />
+          {this.state.guestClicked ? <Guests /> : null}
         </div>
       </div>
 

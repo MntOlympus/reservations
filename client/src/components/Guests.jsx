@@ -16,7 +16,9 @@ class Guests extends React.Component {
   render() {
 
     return (
-
+      <div></div>
     )
   }
 }
+
+export default Guests;
