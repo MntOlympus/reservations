@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
-import Calendar from './Calendar.jsx'
+import Calendar from './Calendar.jsx';
+import Guests from './Guests.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -53,6 +54,9 @@ class App extends React.Component {
 
         <br/>
         <div>Guests</div>
+        <div>
+          <Guests />
+        </div>
       </div>
 
     )
