@@ -1,4 +1,4 @@
-const db = require('../../DB/index.js');
+const db = require('../../db/index.js');
 
 const getOneProperty = (value, callback) => {
   let randomId = Math.floor(Math.random() * 100)
