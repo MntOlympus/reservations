@@ -8,11 +8,13 @@ class App extends React.Component {
     super();
     this.state = {
       calClicked: false,
-      guestClicked: false
+      guestClicked: false,
+      guestCount: 1
     }
 
     this.calPopUp = this.calPopUp.bind(this);
     this.guestPopUp = this.guestPopUp.bind(this);
+    this.updateGuestCount = this.updateGuestCount.bind(this);
   }
 
   componentDidMount() {
@@ -24,7 +26,8 @@ class App extends React.Component {
           property: prop[0],
           price: prop[0].price,
           rating: prop[0].rating,
-          reviewCount: prop[0].ratings_count
+          reviewCount: prop[0].ratings_count,
+          maxGuests: prop[0].max_guests
         })
         console.log(prop)
       },
@@ -44,6 +47,12 @@ class App extends React.Component {
     })
   }
 
+  updateGuestCount(count) {
+    this.setState({
+      guestCount: count
+    })
+  }
+
   render() {
 
 
@@ -55,16 +64,17 @@ class App extends React.Component {
         <br />
         <br />
         <div>Dates</div>
-        <div onClick={this.calPopUp}><span>Check In</span>  <span>Check Out</span></div>
+        <div onClick={this.calPopUp}><span>Check In</span> --> <span>Check Out</span></div>
         <div>
           {this.state.calClicked ? <Calendar /> : null}
         </div>
 
         <br />
-        <div onClick={this.guestPopUp}>Guests</div>
-        <div>
-          {this.state.guestClicked ? <Guests /> : null}
-        </div>
+        <div>Guests</div>
+        <div onClick={this.guestPopUp}>{this.state.guestCount} guests</div>
+
+          {this.state.guestClicked ? <Guests max={this.state.maxGuests} updateCount={this.updateGuestCount}/> : null}
+
       </div>
 
     )
