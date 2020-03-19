@@ -31,11 +31,7 @@ class App extends React.Component {
 
   calPopUp() {
     this.setState({
-<<<<<<< HEAD
       calClicked: !this.state.calClicked
-=======
-      calClicked: true
->>>>>>> 763217a4660695fcf2946769f9cb99ceaa1c5933
     })
   }
 
