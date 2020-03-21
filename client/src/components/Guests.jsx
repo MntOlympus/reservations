@@ -1,5 +1,6 @@
 import React from 'react';
 
+const app = document.getElementById('app')
 
 class Guests extends React.Component {
   constructor(props) {
@@ -12,12 +13,18 @@ class Guests extends React.Component {
       max: this.props.max
     }
 
+    this.el = document.createElement('div');
+
     this.increaseAdults = this.increaseAdults.bind(this)
     this.decreaseAdults = this.decreaseAdults.bind(this)
     this.increaseChildren = this.increaseChildren.bind(this)
     this.decreaseChildren = this.decreaseChildren.bind(this)
     this.increaseInfants = this.increaseInfants.bind(this)
     this.decreaseInfants = this.decreaseInfants.bind(this)
+  }
+
+  componentDidMount() {
+    app.appendChild(this.el)
   }
 
   increaseAdults() {
@@ -82,7 +89,6 @@ class Guests extends React.Component {
             <tr>
               <td colSpan="2">
                 <span>Adults</span>
-                {/* <span onClick={(e) => { this.prevMonth() }}>{lessThan}</span> */}
               </td>
               <td>
                 <button onClick={this.decreaseAdults}>-</button>
