@@ -1,0 +1,11 @@
+html * {
+  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
+}
+
+.calendarTable {
+  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
+}
+
+.weekdays {
+  color: blue
+}

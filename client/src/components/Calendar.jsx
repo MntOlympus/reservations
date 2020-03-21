@@ -1,18 +1,20 @@
 import React from 'react';
 import moment from 'moment';
+import styles from '../styles/Calendar.css';
 
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       dateContext: moment(),
-      today: moment()
+      today: moment(),
+      checkIn: 'Check-in',
+      checkout: 'Checkout',
+      nights: 1
     }
     this.weekdays = moment.weekdays();
     this.weekdaysMin = moment.weekdaysMin();
-    // this.month = moment.month();
   }
-
 
   year() {
     return this.state.dateContext.format("Y");
@@ -56,6 +58,32 @@ class Calendar extends React.Component {
     });
   }
 
+  onDayClick(e, day, dateContext) {
+    let year = this.year()
+    let month = dateContext.format('M')
+    let date = `${month}/${day}/${year}`
+    console.log(date)
+
+
+    if (this.state.checkIn === 'Check-in') {
+      this.props.updateCheckIn(date);
+      this.setState({
+        checkIn: date,
+      })
+    } else {
+      var a = moment(this.state.checkin);
+
+      var b = moment(date);
+      // let nights = a.diff(b, 'days')
+
+      this.props.updateCheckout(date);
+      this.setState({
+        checkout: date,
+        // nights: nights
+      })
+    }
+  }
+
   render() {
     let weekdays = this.weekdaysMin.map(day => {
       return (
@@ -67,17 +95,15 @@ class Calendar extends React.Component {
     for (let i = 0; i < this.firstDayOfMonth(); i++) {
       emptyDays.push(<td key={i * 200}>{''}</td>)
     }
-    console.log('empties: ', emptyDays);
 
     let daysInMonth = [];
     for (let day = 1; day < this.daysInMonth(); day++) {
       let className = (day === this.currentDay() ? "day current-day" : "day");
+      console.log(className)
       daysInMonth.push(<td key={day} className={className}>
-        <span>{day}</span>
+        <span onClick={(e) => this.onDayClick(e, day, this.state.dateContext)}>{day}</span>
       </td>)
     }
-
-    console.log('days: ', daysInMonth);
 
     const allMonthDaySlots = [...emptyDays, ...daysInMonth];
     let rows = [];
@@ -111,7 +137,7 @@ class Calendar extends React.Component {
 
     return (
       <div>
-        <table className="calendar">
+        <table className={styles.calendarTable}>
           <thead>
             <tr>
               <td colSpan="2">
@@ -128,7 +154,7 @@ class Calendar extends React.Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr className={styles.weekdays}>
               {weekdays}
             </tr>
             {trDays}
