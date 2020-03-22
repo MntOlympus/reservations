@@ -1,0 +1,105 @@
+.pricingBox {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: block;
+  font-size: 14px;
+  height: 137px;
+  line-height: 20.02px;
+  margin-bottom: 8px;
+  pointer-events: auto;
+  text-size-adjust: 100%;
+  width: 100%;
+}
+
+.pricingRow {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: table;
+  font-size: 14px;
+  height: 22px;
+  line-height: 20.02px;
+  pointer-events: auto;
+  text-size-adjust: 100%;
+  width: 100%;
+}
+
+.priceNightsSection,
+.priceFeeSection {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: table-cell;
+  font-size: 14px;
+  height: 22.0938px;
+  line-height: 20.02px;
+  pointer-events: auto;
+  text-size-adjust: 100%;
+  vertical-align: middle;
+  width: 345px;
+}
+
+.priceNightsWords,
+.serviceFeeWords,
+.totalWords {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: inline;
+  font-size: 14px;
+  font-weight: 400;
+  height: auto;
+  line-height: 18px;
+  overflow-wrap: break-word;
+  pointer-events: auto;
+  text-size-adjust: 100%;
+  width: auto;
+}
+
+.price {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: table-cell;
+  font-size: 14px;
+  height: 22px;
+  line-height: 20.02px;
+  pointer-events: auto;
+  text-size-adjust: 100%;
+  vertical-align: middle;
+  width: 33px;
+}
+
+.priceNumber,
+.totalNumber {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: inline;
+  font-size: 14px;
+  font-weight: 400;
+  height: auto;
+  line-height: 18px;
+  text-align: right;
+  overflow-wrap: break-word;
+  pointer-events: auto;
+  text-size-adjust: 100%;
+  width: auto;
+}
+
+.lineBreak {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 7px;
+  border-bottom-color: rgb(235, 235, 235);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: block;
+  font-size: 14px;
+  height: 1px;
+  line-height: 20.02px;
+  pointer-events: auto;
+  text-size-adjust: 100%;
+}
+
+.totalWords,
+.totalNumber {
+  font-weight: bold;
+}

@@ -60,32 +60,33 @@ class Calendar extends React.Component {
   }
 
   onDayClick(e, day, dateContext) {
-    let year = this.year()
-    let month = dateContext.format('M')
-    let date = `${month}/${day}/${year}`
-    console.log(date)
+    let year = this.year();
+    let month = dateContext.format('M');
+    let date = `${month}/${day}/${year}`;
 
+    let a = moment(this.state.checkIn, 'MM.D.YYYY');
+    let b = moment(date, 'MM.D.YYYY');
+    let nights = b.diff(a, 'days');
 
     if (this.state.checkIn === 'Check-in') {
       this.props.updateCheckIn(date);
       this.setState({
         checkIn: date,
       })
-    } else {
+    } else if (nights > 0) {
 
-      var a = moment(this.state.checkin);
-      var b = moment([2020, 0, 5]);
-      // let nights = a.diff(b, 'days')
-
-      this.props.updateCheckout(date);
+      let nights = b.diff(a, 'days')
+      this.props.updateCheckout(date, nights);
       this.setState({
         checkout: date,
-        // nights: nights
+        nights: nights
       })
+
     }
   }
 
   render() {
+
     let weekdays = this.weekdaysMin.map(day => {
       return (
         <td key={day}>{day}</td>

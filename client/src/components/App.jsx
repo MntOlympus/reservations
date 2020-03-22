@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import Calendar from './Calendar.jsx';
 import Guests from './Guests.jsx';
+import Pricing from './Pricing.jsx';
 import Star from '../star.svg';
 import RightArrow from '../rightArrow.svg';
 import styles from '../styles/App.css';
@@ -16,9 +17,9 @@ class App extends React.Component {
       adultCount: 1,
       childCount: 0,
       infantCount: 0,
-      nights: 1,
+      nights: 0,
       checkIn: 'Check-in',
-      checkout: 'Checkout'
+      checkout: 'Checkout',
     }
 
     this.calPopUp = this.calPopUp.bind(this);
@@ -84,11 +85,6 @@ class App extends React.Component {
   }
 
   render() {
-    let totalTax = Number((this.state.nights * this.state.price * this.state.tax).toFixed(2));
-    let totalFee = Number((this.state.nights * this.state.price * this.state.fee).toFixed(2));
-    let totalCost = Number((this.state.nights * this.state.price).toFixed(2));
-    let total = (totalTax + totalFee + totalCost).toFixed(2);
-
     let infants = this.state.infantCount ? this.state.infantCount : null;
     let infantWord = this.state.infantCount > 1 ? 'infants' : 'infant';
     let guestWord = this.state.guestCount > 1 ? 'guests' : 'guest';
@@ -134,45 +130,9 @@ class App extends React.Component {
             infants={this.state.infantCount} />
           : null}
         <br />
-        <table className="costs">
-          <tbody>
-            <tr>
-              <td colSpan="2">
-                <span>${this.state.price} x {this.state.nights} nights</span>
-              </td>
-              <td>
-                <span>${totalCost}</span>
-              </td>
-            </tr>
-            <tr>
-              <td colSpan="2">
-                <span>Service fee</span>
-              </td>
-              <td>
-                <span>${totalFee}</span>
-              </td>
-            </tr>
-            <tr>
-              <td colSpan="2">
-                <span>Occupancy taxes and fees</span>
-              </td>
-              <td>
-                <span>${totalTax}</span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span>Total</span>
-              </td>
-              <td>
-                <span></span>
-              </td>
-              <td>
-                <span>${total}</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        {this.state.property && this.state.nights ?
+          <Pricing nights={this.state.nights} property={this.state.property}/>
+        : null}
         <br />
         <div>
           <button className={styles.reserveBtn}>Reserve</button>

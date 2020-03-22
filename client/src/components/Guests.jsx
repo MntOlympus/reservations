@@ -7,10 +7,10 @@ class Guests extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      totalCountedGuests: props.adults + props.children,
-      adults: props.adults,
-      children: props.children,
-      infants: props.infants,
+      totalCountedGuests: this.props.adults + this.props.children,
+      adults: this.props.adults,
+      children: this.props.children,
+      infants: this.props.infants,
       max: this.props.max
     }
 
@@ -97,7 +97,7 @@ class Guests extends React.Component {
             </div>
           </div>
           <div className={styles.infantRowBig}>
-            <div className={styles.infantWord}>Children</div>
+            <div className={styles.infantWord}>Infants</div>
             <div className={styles.adjusters}>
               <button className={styles.minBtn} onClick={this.decreaseInfants}>-</button>
               <div className={styles.infantNum}>{this.state.infants}</div>
@@ -107,60 +107,6 @@ class Guests extends React.Component {
           <div className={styles.maxWords}>{this.state.max} guests maximum. Infants don’t count toward the number of guests.</div>
         </div>
       </div>
-
-
-
-
-
-
-      //   <table className="guests">
-      //   <tbody>
-      //       <tr>
-      //         <td colSpan="2">
-      //           <span></span>
-      //         </td>
-      //         <td>
-
-      //         </td>
-      //         <td>
-
-      //         </td>
-      //         <td>
-
-      //         </td>
-      //       </tr>
-      //       <tr>
-      //         <td colSpan="2">
-      //           <span>Children</span>
-      //         </td>
-      //         <td>
-      //           <button className={styles.minBtn} onClick={this.decreaseChildren}>-</button>
-      //         </td>
-      //         <td>
-      //           <span>{this.state.children}</span>
-      //         </td>
-      //         <td>
-      //           <button className={styles.addBtn} onClick={this.increaseChildren}>+</button>
-      //         </td>
-      //       </tr>
-      //       <tr>
-      //         <td colSpan="2">
-      //           <span>Infants</span>
-      //         </td>
-      //         <td>
-      //           <button className={styles.minBtn} onClick={this.decreaseInfants}>-</button>
-      //         </td>
-      //         <td>
-      //           <span>{this.state.infants}</span>
-      //         </td>
-      //         <td>
-      //           <button className={styles.addBtn} onClick={this.increaseInfants}>+</button>
-      //         </td>
-      //       </tr>
-      //       </tbody>
-      //   </table>
-      //
-      // </div>
     )
   }
 }

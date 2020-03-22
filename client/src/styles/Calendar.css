@@ -7,8 +7,9 @@ html * {
 }
 
 
+.weekdays {
 
-.weekdays {}
+}
 
 .trDays {
   border-bottom-color: rgb(238, 238, 238);
@@ -30,13 +31,9 @@ html * {
   border-top-width: 2px;
   box-sizing: border-box;
   color: rgb(72, 72, 72);
-  /* display:none; */
-  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   height: auto;
   line-height: 20.02px;
   text-size-adjust: 100%;
   width: 100%;
-  -webkit-font-smoothing: antialiased;
-  -webkit-border-image: none;
 }
