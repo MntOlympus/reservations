@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../styles/Guests.css';
 
 const app = document.getElementById('app')
 
@@ -6,14 +7,12 @@ class Guests extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      totalCountedGuests: 1,
-      adults: 1,
-      children: 0,
-      infants: 0,
+      totalCountedGuests: props.adults + props.children,
+      adults: props.adults,
+      children: props.children,
+      infants: props.infants,
       max: this.props.max
     }
-
-    this.el = document.createElement('div');
 
     this.increaseAdults = this.increaseAdults.bind(this)
     this.decreaseAdults = this.decreaseAdults.bind(this)
@@ -23,16 +22,12 @@ class Guests extends React.Component {
     this.decreaseInfants = this.decreaseInfants.bind(this)
   }
 
-  componentDidMount() {
-    app.appendChild(this.el)
-  }
-
   increaseAdults() {
     if (this.state.totalCountedGuests < this.state.max) {
       this.setState({
         adults: this.state.adults + 1,
         totalCountedGuests: this.state.totalCountedGuests + 1
-      }, () => this.props.updateCount(this.state.totalCountedGuests) )
+      }, () => this.props.updateCount(this.state.totalCountedGuests, this.state.adults, this.state.children, this.state.infants))
     }
   }
 
@@ -41,7 +36,7 @@ class Guests extends React.Component {
       this.setState({
         adults: this.state.adults - 1,
         totalCountedGuests: this.state.totalCountedGuests - 1
-      }, () => this.props.updateCount(this.state.totalCountedGuests) )
+      }, () => this.props.updateCount(this.state.totalCountedGuests, this.state.adults, this.state.children, this.state.infants))
     }
   }
 
@@ -50,7 +45,7 @@ class Guests extends React.Component {
       this.setState({
         children: this.state.children + 1,
         totalCountedGuests: this.state.totalCountedGuests + 1
-      }, () => this.props.updateCount(this.state.totalCountedGuests) )
+      }, () => this.props.updateCount(this.state.totalCountedGuests, this.state.adults, this.state.children, this.state.infants))
     }
   }
 
@@ -59,7 +54,7 @@ class Guests extends React.Component {
       this.setState({
         children: this.state.children - 1,
         totalCountedGuests: this.state.totalCountedGuests - 1
-      }, () => this.props.updateCount(this.state.totalCountedGuests))
+      }, () => this.props.updateCount(this.state.totalCountedGuests, this.state.adults, this.state.children, this.state.infants))
     }
   }
 
@@ -67,7 +62,7 @@ class Guests extends React.Component {
     if (this.state.infants < 5) {
       this.setState({
         infants: this.state.infants + 1
-      })
+      }, () => this.props.updateCount(this.state.totalCountedGuests, this.state.adults, this.state.children, this.state.infants))
     }
   }
 
@@ -75,7 +70,7 @@ class Guests extends React.Component {
     if (this.state.infants > 0) {
       this.setState({
         infants: this.state.infants - 1
-      })
+      }, () => this.props.updateCount(this.state.totalCountedGuests, this.state.adults, this.state.children, this.state.infants))
     }
   }
 
@@ -84,54 +79,88 @@ class Guests extends React.Component {
 
     return (
       <div>
-        <table className="guests">
-        <tbody>
-            <tr>
-              <td colSpan="2">
-                <span>Adults</span>
-              </td>
-              <td>
-                <button onClick={this.decreaseAdults}>-</button>
-              </td>
-              <td>
-                <span>{this.state.adults}</span>
-              </td>
-              <td>
-                <button onClick={this.increaseAdults}>+</button>
-              </td>
-            </tr>
-            <tr>
-              <td colSpan="2">
-                <span>Children</span>
-              </td>
-              <td>
-                <button onClick={this.decreaseChildren}>-</button>
-              </td>
-              <td>
-                <span>{this.state.children}</span>
-              </td>
-              <td>
-                <button onClick={this.increaseChildren}>+</button>
-              </td>
-            </tr>
-            <tr>
-              <td colSpan="2">
-                <span>Infants</span>
-              </td>
-              <td>
-                <button onClick={this.decreaseInfants}>-</button>
-              </td>
-              <td>
-                <span>{this.state.infants}</span>
-              </td>
-              <td>
-                <button onClick={this.increaseInfants}>+</button>
-              </td>
-            </tr>
-            </tbody>
-        </table>
-        <div>{this.state.max} guests maximum. Infants don’t count toward the number of guests.</div>
+        <div className={styles.guestBox}>
+          <div className={styles.adultRowBig}>
+            <div className={styles.adultWord}>Adults</div>
+            <div className={styles.adjusters}>
+              <button className={styles.minBtn} onClick={this.decreaseAdults}>-</button>
+              <div className={styles.adultNum}>{this.state.adults}</div>
+              <button className={styles.addBtn} onClick={this.increaseAdults}>+</button>
+            </div>
+          </div>
+          <div className={styles.childRowBig}>
+            <div className={styles.childWord}>Children</div>
+            <div className={styles.adjusters}>
+              <button className={styles.minBtn} onClick={this.decreaseChildren}>-</button>
+              <div className={styles.childNum}>{this.state.children}</div>
+              <button className={styles.addBtn} onClick={this.increaseChildren}>+</button>
+            </div>
+          </div>
+          <div className={styles.infantRowBig}>
+            <div className={styles.infantWord}>Children</div>
+            <div className={styles.adjusters}>
+              <button className={styles.minBtn} onClick={this.decreaseInfants}>-</button>
+              <div className={styles.infantNum}>{this.state.infants}</div>
+              <button className={styles.addBtn} onClick={this.increaseInfants}>+</button>
+            </div>
+          </div>
+          <div className={styles.maxWords}>{this.state.max} guests maximum. Infants don’t count toward the number of guests.</div>
+        </div>
       </div>
+
+
+
+
+
+
+      //   <table className="guests">
+      //   <tbody>
+      //       <tr>
+      //         <td colSpan="2">
+      //           <span></span>
+      //         </td>
+      //         <td>
+
+      //         </td>
+      //         <td>
+
+      //         </td>
+      //         <td>
+
+      //         </td>
+      //       </tr>
+      //       <tr>
+      //         <td colSpan="2">
+      //           <span>Children</span>
+      //         </td>
+      //         <td>
+      //           <button className={styles.minBtn} onClick={this.decreaseChildren}>-</button>
+      //         </td>
+      //         <td>
+      //           <span>{this.state.children}</span>
+      //         </td>
+      //         <td>
+      //           <button className={styles.addBtn} onClick={this.increaseChildren}>+</button>
+      //         </td>
+      //       </tr>
+      //       <tr>
+      //         <td colSpan="2">
+      //           <span>Infants</span>
+      //         </td>
+      //         <td>
+      //           <button className={styles.minBtn} onClick={this.decreaseInfants}>-</button>
+      //         </td>
+      //         <td>
+      //           <span>{this.state.infants}</span>
+      //         </td>
+      //         <td>
+      //           <button className={styles.addBtn} onClick={this.increaseInfants}>+</button>
+      //         </td>
+      //       </tr>
+      //       </tbody>
+      //   </table>
+      //
+      // </div>
     )
   }
 }

@@ -1,22 +1,41 @@
 .mainApp {
-  width: 376px;
-  min-height: 504px;
+  background-color: rgb(255, 255, 255);
+  border-bottom-color: rgb(228, 228, 228);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-image-outset: 0px;
+  border-image-repeat: stretch;
+  border-image-slice: 100%;
+  border-image-source: none;
+  border-image-width: 1;
+  border-left-color: rgb(228, 228, 228);
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: rgb(228, 228, 228);
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: rgb(228, 228, 228);
+  border-top-style: solid;
+  border-top-width: 1px;
   box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: block;
+  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
-  line-height: 1.43;
+
+  line-height: 20.02px;
+  margin: 0;
   padding: 24px;
-  border-color: #484848;
-  border-style: solid;
-  border-radius: 4px;
-  border-width: 2px;
+  text-size-adjust: 100%;
+  width: 376px;
 }
 
 .price {
   box-sizing: border-box;
-  color:rgb(72, 72, 72);
+  color: rgb(72, 72, 72);
   display: inline;
-  font-size: 18px;
-  font-weight: 800;
+  font-size: 22px;
+  font-weight: 600;
   height: auto;
   line-height: 1.44444em !important;
   margin-bottom: 0px;
@@ -27,6 +46,103 @@
   text-size-adjust: 100%;
   width: auto;
   -webkit-font-smoothing: antialiased;
+}
+
+.perNight {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: inline;
+  font-size: 12px;
+  font-weight: 500;
+  height: auto;
+  line-height: 16px;
+  overflow-wrap: break-word;
+  text-size-adjust: 100%;
+  white-space: nowrap;
+}
+
+.lineBreak {
+  border-bottom-color: rgb(235, 235, 235);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: block;
+  font-size: 14px;
+  height: 1px;
+  line-height: 20.02px;
+  text-size-adjust: 100%;
+  width: 328px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.datesBox,
+.guestsBox {
+  background-color: rgb(255, 255, 255);
+  border-bottom-color: rgb(235, 235, 235);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-image-outset: 0px;
+  border-image-repeat: stretch;
+  border-image-slice: 100%;
+  border-image-source: none;
+  border-image-width: 1;
+  border-left-color: rgb(235, 235, 235);
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: rgb(235, 235, 235);
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: rgb(235, 235, 235);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: table;
+  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  height: 42px;
+  line-height: 1.43;
+  table-layout: fixed;
+  text-size-adjust: 100%;
+  width: 328px;
+}
+
+.checkIn,
+.checkout,
+.guestCounts {
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: rgb(255, 255, 255);
+  background-image: none;
+  background-origin: padding-box;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-size: auto;
+  box-sizing: border-box;
+  color: rgb(117, 117, 117);
+  display: inline-block;
+  font-size: 17px;
+  font-weight: 400;
+  height: 40px;
+  line-height: 24px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+  position: relative;
+  text-size-adjust: 100%;
+  vertical-align: middle;
+  width: 151px;
 }
 
 
@@ -67,17 +183,108 @@
   color: #ffffff !important;
 }
 
-.lineBreak {
-  border-bottom-color:rgb(235, 235, 235);
-border-bottom-style:solid;
-border-bottom-width:1px;
-box-sizing:border-box;
-color:rgb(72, 72, 72);
-display:block;
-font-size:14px;
-height:1px;
-line-height:20.02px;
-text-size-adjust:100%;
-width:328px;
--webkit-font-smoothing:antialiased;
+.ratingAndCount {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  flex-wrap: wrap;
+  /* font-stretch: 100%; */
+  letter-spacing: normal;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+.rating {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  cursor: pointer;
+  display: block;
+  font-size: 12px;
+  font-stretch: 100%;
+  font-style: normal;
+  font-variant-caps: normal;
+  font-variant-east-asian: normal;
+  font-variant-ligatures: normal;
+  font-variant-numeric: normal;
+  font-weight: 600;
+  height: 16px;
+  letter-spacing: normal;
+  line-height: 16px;
+  overflow-wrap: break-word;
+  text-align: left;
+  text-indent: 0px;
+  text-rendering: auto;
+  text-shadow: none;
+  text-size-adjust: 100%;
+  text-transform: none;
+  user-select: auto;
+  white-space: pre-wrap;
+  word-spacing: 0px;
+}
+
+.reviewCount {
+  box-sizing: border-box;
+  color: rgb(118, 118, 118);
+  cursor: pointer;
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  height: 16px;
+  letter-spacing: normal;
+  line-height: 16px;
+  text-indent: 0px;
+  text-shadow: none;
+  white-space: pre-wrap;
+  word-spacing: 0px;
+}
+
+.rightArrow {
+  vertical-align: middle;
+  width: 24px;
+  opacity: 0.7;
+}
+
+.star {
+  width: 9px;
+}
+
+.datesWord,
+.guestsWord {
+  color: rgb(72, 72, 72);
+  cursor: default;
+  display: inline;
+  font-size: 12px;
+  font-weight: 600;
+  height: auto;
+  line-height: 16px;
+  overflow-wrap: break-word;
+  text-size-adjust: 100%;
+}
+
+.noCharge {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: block;
+  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  height: 20px;
+  line-height: 20.02px;
+  text-align: center;
+  text-size-adjust: 100%;
+  padding-top: 3px;
+}
+
+.noChargeWords {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: inline;
+  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  height: auto;
+  line-height: 16px;
+  overflow-wrap: break-word;
+  text-align: center;
+  text-size-adjust: 100%;
 }

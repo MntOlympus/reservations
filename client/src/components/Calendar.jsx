@@ -12,6 +12,7 @@ class Calendar extends React.Component {
       checkout: 'Checkout',
       nights: 1
     }
+
     this.weekdays = moment.weekdays();
     this.weekdaysMin = moment.weekdaysMin();
   }
@@ -71,9 +72,9 @@ class Calendar extends React.Component {
         checkIn: date,
       })
     } else {
-      var a = moment(this.state.checkin);
 
-      var b = moment(date);
+      var a = moment(this.state.checkin);
+      var b = moment([2020, 0, 5]);
       // let nights = a.diff(b, 'days')
 
       this.props.updateCheckout(date);
@@ -126,7 +127,7 @@ class Calendar extends React.Component {
 
     let trDays = rows.map((day, i) => {
       return (
-        <tr key={i * 100}>
+        <tr className={styles.trDays} key={i * 100}>
           {day}
         </tr>
       );

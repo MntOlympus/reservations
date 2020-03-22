@@ -2,6 +2,8 @@ import React from 'react';
 import $ from 'jquery';
 import Calendar from './Calendar.jsx';
 import Guests from './Guests.jsx';
+import Star from '../star.svg';
+import RightArrow from '../rightArrow.svg';
 import styles from '../styles/App.css';
 
 class App extends React.Component {
@@ -11,6 +13,9 @@ class App extends React.Component {
       calClicked: false,
       guestClicked: false,
       guestCount: 1,
+      adultCount: 1,
+      childCount: 0,
+      infantCount: 0,
       nights: 1,
       checkIn: 'Check-in',
       checkout: 'Checkout'
@@ -27,15 +32,16 @@ class App extends React.Component {
     $.ajax({
       method: 'GET',
       url: '/api/properties',
-      success: (prop) => {
+      success: (property) => {
+        let prop = property[0];
         this.setState({
-          property: prop[0],
-          price: prop[0].price,
-          rating: prop[0].rating,
-          reviewCount: prop[0].ratings_count,
-          maxGuests: prop[0].max_guests,
-          tax: prop[0].tax,
-          fee: prop[0].service_fee
+          property: prop,
+          price: prop.price,
+          rating: prop.rating,
+          reviewCount: prop.ratings_count,
+          maxGuests: prop.max_guests,
+          tax: prop.tax,
+          fee: prop.service_fee
         })
         console.log(prop)
       },
@@ -55,9 +61,12 @@ class App extends React.Component {
     })
   }
 
-  updateGuestCount(count) {
+  updateGuestCount(gCount, aCount, cCount, iCount) {
     this.setState({
-      guestCount: count
+      guestCount: gCount,
+      adultCount: aCount,
+      childCount: cCount,
+      infantCount: iCount,
     })
   }
 
@@ -70,6 +79,7 @@ class App extends React.Component {
   updateCheckout(date, nights) {
     this.setState({
       checkout: date,
+      nights: nights
     })
   }
 
@@ -79,30 +89,50 @@ class App extends React.Component {
     let totalCost = Number((this.state.nights * this.state.price).toFixed(2));
     let total = (totalTax + totalFee + totalCost).toFixed(2);
 
+    let infants = this.state.infantCount ? this.state.infantCount : null;
+    let infantWord = this.state.infantCount > 1 ? 'infants' : 'infant';
+    let guestWord = this.state.guestCount > 1 ? 'guests' : 'guest';
 
     return (
       <div className={styles.mainApp}>
         <div>
           <span className={styles.price}>${this.state.price}</span>
-          <span>per night</span></div>
-        <span>*{this.state.rating}</span><span>   </span>
-        <span>({this.state.reviewCount}) reviews</span>
+          <span className={styles.perNight}> per night</span>
+        </div>
+        <div className={styles.ratingAndCount}>
+          <img className={styles.star} src={Star} />
+          <span className={styles.rating}>{this.state.rating} </span>
+          <span className={styles.reviewCount}>({this.state.reviewCount} reviews)</span>
+        </div>
         <br />
         <br />
         <div></div>
         <div className={styles.lineBreak}></div>
         <br />
-        <div>Dates</div>
-        <div onClick={this.calPopUp}><span>{this.state.checkIn}</span> --> <span>{this.state.checkout}</span></div>
+        <div className={styles.datesWord}>Dates</div>
+        <div className={styles.datesBox} onClick={this.calPopUp}>
+          <span className={styles.checkIn}>{this.state.checkIn}</span>
+          <img className={styles.rightArrow} src={RightArrow} />
+          <span className={styles.checkout}>{this.state.checkout}</span>
+        </div>
         <div>
-          {this.state.calClicked ? <Calendar updateCheckIn={this.updateCheckIn} updateCheckout={this.updateCheckout}/> : null}
+          {this.state.calClicked ? <Calendar updateCheckIn={this.updateCheckIn} updateCheckout={this.updateCheckout} /> : null}
         </div>
 
         <br />
-        <div>Guests</div>
-        <div onClick={this.guestPopUp}>{this.state.guestCount} guests</div>
+        <div className={styles.guestsWord}>Guests</div>
+        <div className={styles.guestsBox} onClick={this.guestPopUp}>
+          <span className={styles.guestCounts}>{this.state.guestCount} {guestWord}{infants ? `, ${infants} ${infantWord}` : null}</span>
+        </div>
 
-        {this.state.guestClicked ? <Guests max={this.state.maxGuests} updateCount={this.updateGuestCount} /> : null}
+        {this.state.guestClicked ?
+          <Guests
+            max={this.state.maxGuests}
+            updateCount={this.updateGuestCount}
+            adults={this.state.adultCount}
+            children={this.state.childCount}
+            infants={this.state.infantCount} />
+          : null}
         <br />
         <table className="costs">
           <tbody>
@@ -147,7 +177,9 @@ class App extends React.Component {
         <div>
           <button className={styles.reserveBtn}>Reserve</button>
         </div>
-        <div>You won’t be charged yet</div>
+        <div className={styles.noCharge}>
+          <span className={styles.noChargeWords}>You won’t be charged yet</span>
+        </div>
       </div>
 
     )

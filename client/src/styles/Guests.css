@@ -1,0 +1,165 @@
+.guestBox {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  font-size: 14px;
+  /* height: 268px; */
+  width: auto;
+  line-height: 20.02px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  text-align: left;
+  text-size-adjust: 100%;
+}
+
+.adultRowBig,
+.childRowBig,
+.infantRowBig {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: table;
+  font-size: 14px;
+  height: 34px;
+  line-height: 20.02px;
+  text-align: left;
+  text-size-adjust: 100%;
+  width: 296px;
+  padding-bottom: 20px;
+  -webkit-border-horizontal-spacing: 0px;
+  -webkit-border-vertical-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.adultWord,
+.childWord,
+.infantWord {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: table-cell;
+  font-size: 16px;
+  font-weight: 600;
+  height: 34px;
+  line-height: 22px;
+  text-align: left;
+  text-size-adjust: 100%;
+  vertical-align: middle;
+  width: 176px;
+  padding-left: 20px;
+}
+
+.adjusters {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: inline;
+  font-size: 14px;
+  height: 34px;
+  line-height: 20.02px;
+
+  text-size-adjust: 100%;
+  vertical-align: middle;
+  width: 140px;
+}
+
+.adultNum,
+.childNum,
+.infantNum {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: inline;
+  font-size: 16px;
+  font-weight: 600;
+  height: 22px;
+  line-height: 22px;
+  overflow-wrap: break-word;
+  text-align: center;
+  text-size-adjust: 100%;
+  padding-right: 22px;
+  padding-left: 22px;
+}
+
+.addBtn,
+.minBtn {
+  align-items: flex-start;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: none;
+  background-origin: padding-box;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-size: auto;
+  border-bottom-color: rgb(0, 132, 137);
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-image-outset: 0px;
+  border-image-repeat: stretch;
+  border-image-slice: 100%;
+  border-image-source: none;
+  border-image-width: 1;
+  border-left-color: rgb(0, 132, 137);
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: rgb(0, 132, 137);
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: rgb(0, 132, 137);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-top-style: solid;
+  border-top-width: 1px;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.847);
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-stretch: 100%;
+  font-style: normal;
+  font-variant-caps: normal;
+  font-variant-east-asian: normal;
+  font-variant-ligatures: normal;
+  font-variant-numeric: normal;
+  font-weight: 400;
+  height: 32px;
+  letter-spacing: normal;
+  line-height: 14px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 2px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 1px;
+  position: relative;
+  text-align: center;
+  text-indent: 0px;
+  text-rendering: auto;
+  text-shadow: none;
+  text-size-adjust: 100%;
+  text-transform: none;
+  touch-action: manipulation;
+  width: 32px;
+  word-spacing: 0px;
+  writing-mode: horizontal-tb;
+  -webkit-appearance: none;
+  -webkit-border-horizontal-spacing: 0px;
+  -webkit-border-vertical-spacing: 0px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-border-image: none;
+}
+
+.maxWords {
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  height: 36px;
+  line-height: 18px;
+  overflow-wrap: break-word;
+  text-align: left;
+  text-size-adjust: 100%;
+}
