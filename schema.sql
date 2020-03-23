@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS airbnb;
+DROP DATABASE IF EXISTS reservations;
 
-CREATE DATABASE airbnb;
+CREATE DATABASE reservations;
 
 USE reservations;
 
