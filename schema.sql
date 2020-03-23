@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS airbnb;
 
 CREATE DATABASE airbnb;
 
-USE airbnb;
+USE reservations;
 
 CREATE TABLE properties (
   id int NOT NULL AUTO_INCREMENT,

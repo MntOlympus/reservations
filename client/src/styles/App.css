@@ -1,3 +1,11 @@
+html * {
+  font-family: Circular, system-ui, Roboto, "Helvetica Neue", sans-serif;
+}
+
+*:focus {
+  outline: none;
+}
+
 .mainApp {
   background-color: rgb(255, 255, 255);
   border-bottom-color: rgb(228, 228, 228);
@@ -20,11 +28,8 @@
   box-sizing: border-box;
   color: rgb(72, 72, 72);
   display: block;
-  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
-
   line-height: 20.02px;
-  margin: 0;
   padding: 24px;
   text-size-adjust: 100%;
   width: 376px;
@@ -45,7 +50,6 @@
   overflow-wrap: break-word;
   text-size-adjust: 100%;
   width: auto;
-  -webkit-font-smoothing: antialiased;
 }
 
 .perNight {
@@ -73,11 +77,11 @@
   line-height: 20.02px;
   text-size-adjust: 100%;
   width: 328px;
-  -webkit-font-smoothing: antialiased;
 }
 
 .datesBox,
 .guestsBox {
+  position: relative;
   background-color: rgb(255, 255, 255);
   border-bottom-color: rgb(235, 235, 235);
   border-bottom-left-radius: 2px;
@@ -103,7 +107,6 @@
   box-sizing: border-box;
   color: rgb(72, 72, 72);
   display: table;
-  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 600;
   height: 42px;
@@ -111,6 +114,10 @@
   table-layout: fixed;
   text-size-adjust: 100%;
   width: 328px;
+}
+
+.guestsBox {
+  cursor: pointer;
 }
 
 .checkIn,
@@ -165,7 +172,6 @@
   border-color: transparent !important;
   -webkit-appearance: button;
   box-sizing: border-box !important;
-  -webkit-writing-mode: horizontal-tb !important;
   text-rendering: auto;
   word-spacing: normal;
   text-indent: 0px;
@@ -249,6 +255,13 @@
   width: 9px;
 }
 
+.downArrow {
+  position: absolute;
+  right: 15px;
+  bottom: 12px;
+  height: 16px;
+}
+
 .datesWord,
 .guestsWord {
   color: rgb(72, 72, 72);
@@ -272,7 +285,7 @@
   line-height: 20.02px;
   text-align: center;
   text-size-adjust: 100%;
-  padding-top: 3px;
+  padding-top: 8px;
 }
 
 .noChargeWords {

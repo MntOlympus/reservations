@@ -4,14 +4,12 @@ import styles from '../styles/Pricing.css';
 const Pricing = (props) => {
 
   let price = props.property.price;
-  let totalTax = Number((props.nights * price * props.property.tax).toFixed(2));
-  let totalFee = Number((props.nights * price * props.property.service_fee).toFixed(2));
-  let totalCost = Number((props.nights * price).toFixed(2));
+  let totalTax = Math.round(props.nights * price * props.property.tax);
+  let totalFee = Math.round(props.nights * price * props.property.service_fee);
+  let totalCost = Math.round(props.nights * price);
   let total = Number(totalTax + totalFee + totalCost).toLocaleString()
 
   totalCost = totalCost.toLocaleString();
-  // total = Number(total).toLocaleString()
-
 
   return (
 
@@ -66,6 +64,7 @@ const Pricing = (props) => {
         </div>
       </div>
     </div>
+
   )
 }
 

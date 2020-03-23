@@ -1,39 +1,119 @@
-html * {
-  font-family: Circular, system-ui, Roboto, "Helvetica Neue", sans-serif;
+.calendarBox {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  font-size: 14px;
+  font-weight: 600;
+  /* height: 308px; */
+  line-height: 20.02px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+  text-align: center;
+  text-size-adjust: 100%;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-property: height;
+  transition-timing-function: ease-in-out;
+  width: 284px;
+  padding-left: 30px;
 }
 
-.calendarTable {
-  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
+.monthHeader {
+  box-sizing: border-box;
+  caption-side: top;
+  color: rgb(72, 72, 72);
+  display: table;
+  font-size: 18px;
+  font-weight: 600;
+  /* height: 84px; */
+  line-height: 25.74px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  text-align: center;
+  text-size-adjust: 100%;
+  user-select: none;
+  width: 100%;
 }
 
+.prevMonth {
+  /* align-items: flex-start; */
+  display: table-cell;
+  text-align: left;
+  /* width: 20px; */
+}
+
+.currentMonth {
+  display: table-cell;
+  text-align: center;
+  /* width: 20px; */
+}
+
+.nextMonth {
+  /* align-items: flex-end; */
+  display: table-cell;
+  /* text-align: right; */
+}
 
 .weekdays {
-
+  text-align: center;
+  font-weight: lighter;
+  box-sizing: border-box;
+  color: rgb(117, 117, 117);
+  font-size: 11.6667px;
+  font-weight: 600;
+  height: auto;
+  line-height: 16.6833px;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  text-align: center;
+  text-size-adjust: 100%;
 }
 
 .trDays {
-  border-bottom-color: rgb(238, 238, 238);
-  border-bottom-style: inset;
-  border-bottom-width: 2px;
+  align-items: center;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: rgb(255, 255, 255);
+  background-image: none;
+  background-origin: padding-box;
+  background-size: auto;
+  border-bottom-color: rgb(228, 231, 231);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-collapse: collapse;
   border-image-outset: 0px;
   border-image-repeat: stretch;
   border-image-slice: 100%;
   border-image-source: none;
   border-image-width: 1;
-  border-left-color: rgb(238, 238, 238);
-  border-left-style: inset;
-  border-left-width: 2px;
-  border-right-color: rgb(238, 238, 238);
-  border-right-style: inset;
-  border-right-width: 2px;
-  border-top-color: rgb(238, 238, 238);
-  border-top-style: inset;
-  border-top-width: 2px;
+  border-left-color: rgb(228, 231, 231);
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: rgb(228, 231, 231);
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: rgb(228, 231, 231);
+  border-top-style: solid;
+  border-top-width: 1px;
   box-sizing: border-box;
   color: rgb(72, 72, 72);
+  cursor: pointer;
+  display: table-cell;
+  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
-  height: auto;
+  font-weight: 600;
+  height: 40px;
   line-height: 20.02px;
+  text-align: center;
   text-size-adjust: 100%;
-  width: 100%;
+  user-select: none;
+  vertical-align: middle;
+  width: 41px;
+  margin: 0;
+  padding: 0px;
 }

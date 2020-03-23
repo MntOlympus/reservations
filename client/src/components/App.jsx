@@ -3,8 +3,10 @@ import $ from 'jquery';
 import Calendar from './Calendar.jsx';
 import Guests from './Guests.jsx';
 import Pricing from './Pricing.jsx';
-import Star from '../star.svg';
-import RightArrow from '../rightArrow.svg';
+import Star from '../media/star.svg';
+import RightArrow from '../media/rightArrow.svg';
+import UpArrow from '../media/upArrow.svg';
+import DownArrow from '../media/downArrow.svg';
 import styles from '../styles/App.css';
 
 class App extends React.Component {
@@ -20,6 +22,9 @@ class App extends React.Component {
       nights: 0,
       checkIn: 'Check-in',
       checkout: 'Checkout',
+      checkInColor: 'white',
+      checkoutColor: 'white',
+      currentCheck: 'CheckIn',
     }
 
     this.calPopUp = this.calPopUp.bind(this);
@@ -51,15 +56,23 @@ class App extends React.Component {
   }
 
   calPopUp() {
-    this.setState({
-      calClicked: !this.state.calClicked
-    })
+    if (this.state.currentCheck === 'CheckIn') {
+      this.setState({
+        calClicked: !this.state.calClicked,
+        checkInColor: '#99ede6'
+      })
+    } else {
+      this.setState({
+        calClicked: !this.state.calClicked,
+        checkInColor: 'white'
+      })
+    }
   }
 
   guestPopUp() {
-    this.setState({
-      guestClicked: !this.state.guestClicked
-    })
+      this.setState({
+        guestClicked: !this.state.guestClicked
+      })
   }
 
   updateGuestCount(gCount, aCount, cCount, iCount) {
@@ -74,14 +87,21 @@ class App extends React.Component {
   updateCheckIn(date) {
     this.setState({
       checkIn: date,
+      checkInColor: 'white',
+      checkoutColor: '#99ede6',
+      currentCheck: 'Checkout'
     })
   }
 
   updateCheckout(date, nights) {
     this.setState({
       checkout: date,
-      nights: nights
+      checkoutColor: 'white',
+      currentCheck: 'CheckIn',
+      nights: nights,
+      calClicked: !this.state.calClicked
     })
+
   }
 
   render() {
@@ -107,9 +127,9 @@ class App extends React.Component {
         <br />
         <div className={styles.datesWord}>Dates</div>
         <div className={styles.datesBox} onClick={this.calPopUp}>
-          <span className={styles.checkIn}>{this.state.checkIn}</span>
+          <span className={styles.checkIn} style={{ backgroundColor: this.state.checkInColor }}>{this.state.checkIn}</span>
           <img className={styles.rightArrow} src={RightArrow} />
-          <span className={styles.checkout}>{this.state.checkout}</span>
+          <span className={styles.checkout} style={{ backgroundColor: this.state.checkoutColor }}>{this.state.checkout}</span>
         </div>
         <div>
           {this.state.calClicked ? <Calendar updateCheckIn={this.updateCheckIn} updateCheckout={this.updateCheckout} /> : null}
@@ -119,6 +139,9 @@ class App extends React.Component {
         <div className={styles.guestsWord}>Guests</div>
         <div className={styles.guestsBox} onClick={this.guestPopUp}>
           <span className={styles.guestCounts}>{this.state.guestCount} {guestWord}{infants ? `, ${infants} ${infantWord}` : null}</span>
+          <span>
+            <img className={styles.downArrow} src={this.state.guestClicked ? UpArrow : DownArrow } />
+          </span>
         </div>
 
         {this.state.guestClicked ?
@@ -131,8 +154,8 @@ class App extends React.Component {
           : null}
         <br />
         {this.state.property && this.state.nights ?
-          <Pricing nights={this.state.nights} property={this.state.property}/>
-        : null}
+          <Pricing nights={this.state.nights} property={this.state.property} />
+          : null}
         <br />
         <div>
           <button className={styles.reserveBtn}>Reserve</button>

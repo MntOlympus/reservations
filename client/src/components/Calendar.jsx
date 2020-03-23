@@ -64,9 +64,11 @@ class Calendar extends React.Component {
     let month = dateContext.format('M');
     let date = `${month}/${day}/${year}`;
 
-    let a = moment(this.state.checkIn, 'MM.D.YYYY');
-    let b = moment(date, 'MM.D.YYYY');
-    let nights = b.diff(a, 'days');
+    let a = moment(this.state.checkIn, 'MM.DD.YYYY');
+
+    let b = moment(date, 'MM.DD.YYYY');
+    let nights = b.diff(a, 'days')
+
 
     if (this.state.checkIn === 'Check-in') {
       this.props.updateCheckIn(date);
@@ -99,11 +101,11 @@ class Calendar extends React.Component {
     }
 
     let daysInMonth = [];
-    for (let day = 1; day < this.daysInMonth(); day++) {
+    for (let day = 1; day <= this.daysInMonth(); day++) {
       let className = (day === this.currentDay() ? "day current-day" : "day");
       console.log(className)
-      daysInMonth.push(<td key={day} className={className}>
-        <span onClick={(e) => this.onDayClick(e, day, this.state.dateContext)}>{day}</span>
+      daysInMonth.push(<td key={day} className={styles.trDays} onClick={(e) => this.onDayClick(e, day, this.state.dateContext)}>
+        <span>{day}</span>
       </td>)
     }
 
@@ -128,7 +130,7 @@ class Calendar extends React.Component {
 
     let trDays = rows.map((day, i) => {
       return (
-        <tr className={styles.trDays} key={i * 100}>
+        <tr key={i * 100}>
           {day}
         </tr>
       );
@@ -138,27 +140,18 @@ class Calendar extends React.Component {
     let greaterThan = '>';
 
     return (
-      <div>
+      <div className={styles.calendarBox}>
+        <div className={styles.monthHeader}>
+          <div className={styles.prevMonth} onClick={(e) => { this.prevMonth() }}>{lessThan}</div>
+          <div className={styles.currentMonth}>{`${this.month()}  ${this.year()}`}</div>
+          <div className={styles.nextMonth} onClick={(e) => { this.nextMonth() }}>{greaterThan}</div>
+        </div>
         <table className={styles.calendarTable}>
-          <thead>
-            <tr>
-              <td colSpan="2">
-                <span onClick={(e) => { this.prevMonth() }}>{lessThan}</span>
-              </td>
 
-              <td colSpan="6">
-                {`${this.month()}  ${this.year()}`}
-              </td>
-              <td colSpan="2">
-                <span onClick={(e) => { this.nextMonth() }}>{greaterThan}</span>
-              </td>
-
-            </tr>
-          </thead>
           <tbody>
             <tr className={styles.weekdays}>
               {weekdays}
-            </tr>
+            </tr >
             {trDays}
           </tbody>
         </table>
