@@ -25,6 +25,10 @@ class Calendar extends React.Component {
     return this.state.dateContext.format("MMMM");
   }
 
+  monthNum() {
+    return this.state.dateContext.format("M");
+  }
+
   daysInMonth() {
     return this.state.dateContext.daysInMonth();
   }
@@ -102,11 +106,27 @@ class Calendar extends React.Component {
 
     let daysInMonth = [];
     for (let day = 1; day <= this.daysInMonth(); day++) {
-      let className = (day === this.currentDay() ? "day current-day" : "day");
-      console.log(className)
+
+      let year = this.year();
+      let month = this.monthNum();
+      let date = `${month}/${day}/${year}`;
+      // console.log(date )
+      let a = moment(this.state.today, 'MM.DD.YYYY');
+      console.log(a)
+      let b = moment(date, 'MM.DD.YYYY');
+      console.log(b)
+      let nights = b.diff(a, 'days')
+      console.log(nights)
+
+      if (nights >= 0) {
       daysInMonth.push(<td key={day} className={styles.trDays} onClick={(e) => this.onDayClick(e, day, this.state.dateContext)}>
         <span>{day}</span>
       </td>)
+      } else {
+        daysInMonth.push(<td key={day} className={styles.trDaysFaded}>
+        <span>{day}</span>
+        </td>)
+      }
     }
 
     const allMonthDaySlots = [...emptyDays, ...daysInMonth];

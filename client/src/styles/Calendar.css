@@ -74,7 +74,8 @@
   text-size-adjust: 100%;
 }
 
-.trDays {
+.trDays,
+.trDaysFaded {
   align-items: center;
   background-attachment: scroll;
   background-clip: border-box;
@@ -116,4 +117,13 @@
   width: 41px;
   margin: 0;
   padding: 0px;
+}
+
+.trDays:hover {
+  background-color: rgb(153, 237, 230);
+}
+
+.trDaysFaded {
+  opacity: .25;
+  cursor: default;
 }

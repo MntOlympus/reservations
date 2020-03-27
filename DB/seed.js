@@ -17,9 +17,11 @@ const getPropertySeedData = () => {
     DB.query(qString, (err, data) => {
       if (err) {
         console.log('error seeding database', err);
+      } else {
+        console.log('Success! Insert worked')
       }
     });
   }
 }
 
-getPropertySeedData();
+module.exports = { getPropertySeedData };
