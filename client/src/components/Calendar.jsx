@@ -10,7 +10,8 @@ class Calendar extends React.Component {
       today: moment(),
       checkIn: 'Check-in',
       checkout: 'Checkout',
-      nights: 1
+      nights: 1,
+      currentHoverDay: null
     }
 
     this.weekdays = moment.weekdays();
@@ -64,6 +65,7 @@ class Calendar extends React.Component {
   }
 
   onDayClick(e, day, dateContext) {
+    console.log(e.target.className)
     let year = this.year();
     let month = dateContext.format('M');
     let date = `${month}/${day}/${year}`;
@@ -80,15 +82,28 @@ class Calendar extends React.Component {
         checkIn: date,
       })
     } else if (nights > 0) {
-
       let nights = b.diff(a, 'days')
       this.props.updateCheckout(date, nights);
       this.setState({
         checkout: date,
         nights: nights
       })
-
     }
+  }
+
+  onDayHover(e, day, dateContext) {
+    let year = this.year();
+    let month = dateContext.format('M');
+    let date = `${month}/${day}/${year}`;
+    this.setState({
+      currentHoverDay: date
+    })
+  }
+
+  onDayLeave(e, day, dateContext) {
+    this.setState({
+      currentHoverDay: null
+    })
   }
 
   render() {
@@ -105,27 +120,56 @@ class Calendar extends React.Component {
     }
 
     let daysInMonth = [];
-    for (let day = 1; day <= this.daysInMonth(); day++) {
 
+    for (let day = 1; day <= this.daysInMonth(); day++) {
       let year = this.year();
       let month = this.monthNum();
       let date = `${month}/${day}/${year}`;
-      // console.log(date )
       let a = moment(this.state.today, 'MM.DD.YYYY');
-      console.log(a)
       let b = moment(date, 'MM.DD.YYYY');
-      console.log(b)
       let nights = b.diff(a, 'days')
-      console.log(nights)
 
-      if (nights >= 0) {
-      daysInMonth.push(<td key={day} className={styles.trDays} onClick={(e) => this.onDayClick(e, day, this.state.dateContext)}>
-        <span>{day}</span>
-      </td>)
+      let isBeforeCheckIn = false;
+
+      if (this.state.checkIn !== 'Check-in') {
+        let daysBeforeCheckIn = b.diff(moment(this.state.checkIn, 'MM.DD.YYYY'), 'days');
+        isBeforeCheckIn = daysBeforeCheckIn < 0 ? true : false;
+      }
+
+      let hovDate = null;
+      let shouldHove = false;
+
+      if (this.state.checkIn !== 'Check-in' && this.state.currentHoverDay) {
+        let currHov = moment(this.state.currentHoverDay);
+        let diff = b.diff(currHov, 'days');
+        let shouldHove = diff < 0;
+        hovDate = shouldHove ? `${styles.hovDate}` : null
+      }
+
+      if (date === this.state.checkIn) {
+        daysInMonth.push(
+          <td 
+            key={day}
+            className={styles.checkInDay}>
+            <span>{day}</span>
+          </td>)
+      } else if (nights < 0 || isBeforeCheckIn) {
+        daysInMonth.push(
+          <td 
+            key={day}
+            className={styles.trDaysFaded}>
+            <span>{day}</span>
+          </td>)
       } else {
-        daysInMonth.push(<td key={day} className={styles.trDaysFaded}>
-        <span>{day}</span>
-        </td>)
+        daysInMonth.push(
+          <td 
+            key={day}
+            className={`${styles.trDays} ${hovDate}`}
+            onMouseEnter={(e) => this.onDayHover(e, day, this.state.dateContext)}
+            onMouseLeave={(e) => this.onDayLeave(e, day, this.state.dateContext)}
+            onClick={(e) => this.onDayClick(e, day, this.state.dateContext)}>
+            <span>{day}</span>
+          </td>)
       }
     }
 

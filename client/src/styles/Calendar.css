@@ -75,7 +75,8 @@
 }
 
 .trDays,
-.trDaysFaded {
+.trDaysFaded,
+.checkInDay {
   align-items: center;
   background-attachment: scroll;
   background-clip: border-box;
@@ -117,6 +118,14 @@
   width: 41px;
   margin: 0;
   padding: 0px;
+}
+
+.checkInDay {
+  background-color: #00a699;
+}
+
+.hovDate {
+  background-color: rgb(153, 237, 230);
 }
 
 .trDays:hover {

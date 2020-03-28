@@ -27,7 +27,7 @@ const addSchema = () => {
             console.log('Hooray, DB schema inserted properly')
             seed.getPropertySeedData();
             DB.end();
-        }
+        }       
     });
 }
 

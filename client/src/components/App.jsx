@@ -56,15 +56,18 @@ class App extends React.Component {
   }
 
   calPopUp() {
-    if (this.state.currentCheck === 'CheckIn') {
+    if (this.state.currentCheck === 'CheckIn' && this.state.checkInColor === 'white') {
       this.setState({
         calClicked: !this.state.calClicked,
         checkInColor: '#99ede6'
       })
+    } else if (this.state.currentCheck) {
+
     } else {
       this.setState({
         calClicked: !this.state.calClicked,
-        checkInColor: 'white'
+        checkInColor: 'white',
+        checkoutColor: 'white'
       })
     }
   }
