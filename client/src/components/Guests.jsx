@@ -77,31 +77,37 @@ class Guests extends React.Component {
 
   render() {
 
+   let fadedAmin = this.props.adults === 1 ? `${styles.faded}` : '';
+   let fadedAmax = this.state.totalCountedGuests === this.state.max ? `${styles.faded}` : '';
+   let fadedKmin = this.props.children === 0 ? `${styles.faded}` : '';
+   let fadedImin = this.props.infants === 0 ? `${styles.faded}` : '';
+   let fadedImax = this.props.infants === 5 ? `${styles.faded}` : '';
+
     return (
       <div>
         <div className={styles.guestBox}>
           <div className={styles.adultRowBig}>
             <div className={styles.adultWord}>Adults</div>
             <div className={styles.adjusters}>
-              <button className={styles.minBtn} onClick={this.decreaseAdults}>-</button>
+              <button className={`${fadedAmin} ${styles.minBtn}`} onClick={this.decreaseAdults}>-</button>
               <div className={styles.adultNum}>{this.state.adults}</div>
-              <button className={styles.addBtn} onClick={this.increaseAdults}>+</button>
+              <button className={`${fadedAmax} ${styles.addBtn}`} onClick={this.increaseAdults}>+</button>
             </div>
           </div>
           <div className={styles.childRowBig}>
             <div className={styles.childWord}>Children</div>
             <div className={styles.adjusters}>
-              <button className={styles.minBtn} onClick={this.decreaseChildren}>-</button>
+              <button className={`${fadedKmin} ${styles.minBtn}`} onClick={this.decreaseChildren}>-</button>
               <div className={styles.childNum}>{this.state.children}</div>
-              <button className={styles.addBtn} onClick={this.increaseChildren}>+</button>
+              <button className={`${fadedAmax} ${styles.addBtn}`} onClick={this.increaseChildren}>+</button>
             </div>
           </div>
           <div className={styles.infantRowBig}>
             <div className={styles.infantWord}>Infants</div>
             <div className={styles.adjusters}>
-              <button className={styles.minBtn} onClick={this.decreaseInfants}>-</button>
+              <button className={`${fadedImin} ${styles.minBtn}`} onClick={this.decreaseInfants}>-</button>
               <div className={styles.infantNum}>{this.state.infants}</div>
-              <button className={styles.addBtn} onClick={this.increaseInfants}>+</button>
+              <button className={`${fadedImax} ${styles.addBtn}`} onClick={this.increaseInfants}>+</button>
             </div>
           </div>
           <div className={styles.maxWords}>{this.state.max} guests maximum. Infants don’t count toward the number of guests.</div>

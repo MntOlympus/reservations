@@ -11,6 +11,8 @@
   text-size-adjust: 100%;
 }
 
+
+
 .adultRowBig,
 .childRowBig,
 .infantRowBig {
@@ -76,8 +78,10 @@
 }
 
 .addBtn,
-.minBtn {
+.minBtn,
+.faded {
   position: fixed;
+  color: rgb(0, 132, 137);
   align-items: flex-start;
   background-attachment: scroll;
   background-clip: border-box;
@@ -110,10 +114,8 @@
   border-top-width: 1px;
   box-shadow: none;
   box-sizing: border-box;
-  color: rgba(0, 0, 0, 0.847);
   cursor: pointer;
   display: inline-block;
-  font-family: Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-stretch: 100%;
   font-style: normal;
@@ -145,6 +147,11 @@
   -webkit-border-vertical-spacing: 0px;
   -webkit-font-smoothing: antialiased;
   -webkit-border-image: none;
+}
+
+.faded {
+  opacity: .3;
+  pointer-events: none;
 }
 
 .maxWords {
