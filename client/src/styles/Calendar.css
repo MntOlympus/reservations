@@ -4,22 +4,29 @@
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   box-sizing: border-box;
-  color: rgb(72, 72, 72);
+  border: 1px solid rgb(72, 72, 72, .1);
+  border-width: 1px;
+  border-width: 1px;
+  border-style: solid;
   font-size: 14px;
   font-weight: 600;
-  /* height: 308px; */
+  z-index: 100;
   line-height: 20.02px;
   overflow-x: hidden;
   overflow-y: hidden;
-  position: relative;
+  position: fixed;
   text-align: center;
   text-size-adjust: 100%;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-property: height;
   transition-timing-function: ease-in-out;
-  width: 284px;
+  width: 328px;
+  margin-top: 10px;
+  padding-right: 30px;
   padding-left: 30px;
+  padding-bottom: 15px;
+  background-color: white;
 }
 
 .monthHeader {
@@ -121,18 +128,22 @@
 }
 
 .checkInDay {
+  color: white;
   background-color: #00a699;
 }
 
 .hovDate {
+  color: white;
   background-color: rgb(153, 237, 230);
 }
 
 .trDays:hover {
+  color: white;
   background-color: rgb(153, 237, 230);
 }
 
 .trDaysFaded {
   opacity: .25;
   cursor: default;
+  text-decoration: line-through;
 }

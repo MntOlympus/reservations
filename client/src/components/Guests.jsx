@@ -111,6 +111,9 @@ class Guests extends React.Component {
             </div>
           </div>
           <div className={styles.maxWords}>{this.state.max} guests maximum. Infants don’t count toward the number of guests.</div>
+          <div className={styles.closeDiv}>
+            <button className={styles.closeBtn} onClick={this.props.close}>Close</button>
+          </div>
         </div>
       </div>
     )

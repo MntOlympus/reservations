@@ -148,21 +148,21 @@ class Calendar extends React.Component {
 
       if (date === this.state.checkIn) {
         daysInMonth.push(
-          <td 
+          <td
             key={day}
             className={styles.checkInDay}>
             <span>{day}</span>
           </td>)
       } else if (nights < 0 || isBeforeCheckIn) {
         daysInMonth.push(
-          <td 
+          <td
             key={day}
             className={styles.trDaysFaded}>
             <span>{day}</span>
           </td>)
       } else {
         daysInMonth.push(
-          <td 
+          <td
             key={day}
             className={`${styles.trDays} ${hovDate}`}
             onMouseEnter={(e) => this.onDayHover(e, day, this.state.dateContext)}
@@ -204,23 +204,21 @@ class Calendar extends React.Component {
     let greaterThan = '>';
 
     return (
-      <div className={styles.calendarBox}>
-        <div className={styles.monthHeader}>
-          <div className={styles.prevMonth} onClick={(e) => { this.prevMonth() }}>{lessThan}</div>
-          <div className={styles.currentMonth}>{`${this.month()}  ${this.year()}`}</div>
-          <div className={styles.nextMonth} onClick={(e) => { this.nextMonth() }}>{greaterThan}</div>
+        <div className={styles.calendarBox}>
+          <div className={styles.monthHeader}>
+            <div className={styles.prevMonth} onClick={(e) => { this.prevMonth() }}>{lessThan}</div>
+            <div className={styles.currentMonth}>{`${this.month()}  ${this.year()}`}</div>
+            <div className={styles.nextMonth} onClick={(e) => { this.nextMonth() }}>{greaterThan}</div>
+          </div>
+          <table className={styles.calendarTable}>
+            <tbody>
+              <tr className={styles.weekdays}>
+                {weekdays}
+              </tr >
+              {trDays}
+            </tbody>
+          </table>
         </div>
-        <table className={styles.calendarTable}>
-
-          <tbody>
-            <tr className={styles.weekdays}>
-              {weekdays}
-            </tr >
-            {trDays}
-          </tbody>
-        </table>
-
-      </div>
     )
   }
 }

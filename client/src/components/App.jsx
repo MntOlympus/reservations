@@ -149,6 +149,7 @@ class App extends React.Component {
 
         {this.state.guestClicked ?
           <Guests
+            close={this.guestPopUp}
             max={this.state.maxGuests}
             updateCount={this.updateGuestCount}
             adults={this.state.adultCount}

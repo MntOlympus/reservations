@@ -1,14 +1,20 @@
 .guestBox {
   box-sizing: border-box;
+  box-shadow: 5px 5x;
   color: rgb(72, 72, 72);
   font-size: 14px;
-  /* height: 268px; */
-  width: auto;
+  width: 328px;
   line-height: 20.02px;
-  margin-bottom: 16px;
-  margin-top: 16px;
+  padding-top: 20px;
+  /* margin-top: 16px; */
   text-align: left;
   text-size-adjust: 100%;
+  position: fixed;
+  z-index: 100;
+  background-color: white;
+  border: 1px solid rgb(72, 72, 72, .1);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
 
@@ -73,8 +79,9 @@
   overflow-wrap: break-word;
   text-align: center;
   text-size-adjust: 100%;
-  padding-right: 22px;
+  padding-right: 18px;
   padding-left: 22px;
+  margin-right: 5px;
 }
 
 .addBtn,
@@ -128,7 +135,7 @@
   letter-spacing: normal;
   line-height: 14px;
   padding-bottom: 2px;
-  /* padding-left: 7px; */
+  padding-left: 10px;
   /* padding-right: 7px; */
   padding-top: 1px;
   position: relative;
@@ -165,4 +172,76 @@
   overflow-wrap: break-word;
   text-align: left;
   text-size-adjust: 100%;
+  margin-top: 7px;
+  padding-left: 18px;
+  padding-right: 35px;
+}
+
+.closeDiv {
+  align-items: center;
+  box-sizing: border-box;
+  color: rgb(72, 72, 72);
+  display: flex;
+  flex-wrap: wrap;
+  height: 22px;
+  line-height: 0px;
+  text-align: right;
+  margin-top: 10px;
+  text-size-adjust: 100%;
+  padding-left: 255px;
+  margin-bottom: 10px;
+}
+
+.closeBtn {
+  align-items: flex-end;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: none;
+  background-origin: padding-box;
+  background-size: auto;
+  border-bottom-color: rgb(0, 132, 137);
+  border-bottom-style: none;
+  border-bottom-width: 0px;
+  border-image-outset: 0px;
+  border-image-repeat: stretch;
+  border-image-slice: 100%;
+  border-image-source: none;
+  border-image-width: 1;
+  border-left-color: rgb(0, 132, 137);
+  border-left-style: none;
+  border-left-width: 0px;
+  border-right-color: rgb(0, 132, 137);
+  border-right-style: none;
+  border-right-width: 0px;
+  border-top-color: rgb(0, 132, 137);
+  border-top-style: none;
+  border-top-width: 0px;
+  /* box-sizing: border-box; */
+  color: rgb(0, 132, 137);
+  cursor: pointer;
+  /* display: inline-block; */
+  font-size: 16px;
+  font-stretch: 100%;
+  font-weight: 600;
+  height: 22px;
+  letter-spacing: normal;
+  line-height: 22px;
+  overflow-wrap: break-word;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  text-align: right;
+  text-decoration-color: rgb(0, 132, 137);
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  text-indent: 0px;
+  text-rendering: auto;
+  text-shadow: none;
+  text-size-adjust: 100%;
+  text-transform: none;
+  user-select: auto;
+  width: 42.3438px;
+  word-spacing: 0px;
 }
