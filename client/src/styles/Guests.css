@@ -217,10 +217,8 @@
   border-top-color: rgb(0, 132, 137);
   border-top-style: none;
   border-top-width: 0px;
-  /* box-sizing: border-box; */
   color: rgb(0, 132, 137);
   cursor: pointer;
-  /* display: inline-block; */
   font-size: 16px;
   font-stretch: 100%;
   font-weight: 600;
@@ -244,4 +242,8 @@
   user-select: auto;
   width: 42.3438px;
   word-spacing: 0px;
+}
+
+.closeBtn:hover {
+  text-decoration: underline;
 }
