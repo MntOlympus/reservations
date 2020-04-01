@@ -4,7 +4,7 @@ const Controller = require('../server/controllers/getProperty.js');
 const morgan = require('morgan');
 
 const app = express();
-const port = 3001;
+const port = 3000;
 
 app.use(morgan('dev'))
 app.use(bodyParser.json());
